@@ -16,11 +16,11 @@
 <title>user_demo</title>
 </head>
 <body>
- 姓名： ${userInfo.name} 
- 密码： ${userInfo.password} 
+ 姓名： ${userInfo.name} <p/>
+ 密码： ${userInfo.password} <p/>
  创建时间： ${userInfo.create_time} 
  
- <form action="save" method="post">
+ <form action="/showInfo/save.html" method="post">
  <label>添加用户</label>
  	<table>
  		<tr>
@@ -43,8 +43,29 @@
     $.ajax({  
         type : "get",  
         url : "user/showInfos.htmls",  
-        dataType : "json",  
-        success : function(data) {  
+        dataType : "json", 
+        
+        $("#dt").datagrid({
+        	url: url,
+        	rownumbers: true,
+        	singleSelect: true,
+        	columns	: [[
+    				{field:"username", title:"用户名称", align:"center", width:Utils.getWidth("dt", 0.3),
+    					formatter:function(val, data, ind) {
+    						return data.username;
+    					}},
+    				{field:"password", title:"用户密碼", align:"center", width:Utils.getWidth("dt", 0.3),
+        				formatter:function(val, data, ind) {
+        					return data.password;
+        				}},           	    
+        			{field:"create_time", title:"註冊時間", align:"center", width:Utils.getWidth("dt", 0.3),
+            			formatter:function(val, data, ind) {
+            				return data.create_time;
+            			}}, 
+                   	]]
+        });
+        
+        success : function(data) { 
             $(data).each(  
                     function(i, user) {  
                         var p = "<p>username:" + user.name + "    password:"  
@@ -56,7 +77,7 @@
         async : true  
     });  
 </script> 
-    
+    <table id="dt"></table>
 </body>
  
 </html>

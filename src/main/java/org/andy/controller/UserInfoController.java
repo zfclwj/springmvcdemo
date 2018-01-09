@@ -34,7 +34,7 @@ public class UserInfoController {
 	  
 	    @RequestMapping("/showInfos")  
 	    public @ResponseBody List<UserInfo> showUserInfos() {  
-	        LOGGER.info("json����ȫ���û�����Ϣ");  
+	        LOGGER.info("json+++++++++++++");  
 	        List<UserInfo> userInfos = userInfoService.findAll();  
 	        return userInfos;  
 	    }

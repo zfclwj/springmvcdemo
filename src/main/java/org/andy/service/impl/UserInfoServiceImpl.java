@@ -56,11 +56,11 @@ public class UserInfoServiceImpl implements UserInfoService {
 			}else if(userInfo.getId()== null){*/
 		ResultComm rc = new ResultComm();
 		
-				int result = userInfoDao.updateById(userInfo);
-				String str = String.valueOf(result);
-				rc.setCount(result);
-				rc.setStr(str);
-				rc.setSuccess(true);
+			int result = userInfoDao.updateById(userInfo);
+			String str = String.valueOf(result);
+			rc.setCount(result);
+			rc.setStr(str);
+			rc.setSuccess(true);
 			//}
 		//}
 		

@@ -85,7 +85,9 @@ public class UserInfoDaoImpl implements UserInfoDao {
 		return null;
 	}
 	
-//根据id批量删除
+/**
+ * /根据id批量删除
+ */
 	public int[] batchDelete(List<Integer> id) {
 		final List<Integer> ids = id;
 		String sql = "delete from user where id = ?";
